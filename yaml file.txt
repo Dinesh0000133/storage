@@ -1,0 +1,27 @@
+yaml file 
+---
+- name: Install 
+  hosts: apache
+  become: true  # Elevates to root
+  tasks:
+    - name: Ensure python3-apt is installed
+      apt:
+        name: python3-apt
+        state: present
+
+    - name: apache nginx
+      apt:
+        name: apache
+        state: present
+- name: Software Install
+  hosts: amazon
+  become: true
+  tasks:
+    - name: Install apache service
+      yum:
+            name: apache
+            state: present
+    - name: Install nginx
+      yum:
+           name: apache
+           state: present
